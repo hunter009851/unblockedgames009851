@@ -53,7 +53,7 @@ function handleSearchInput() {
 }
 
 
-fetch("./config/games.json") 
+fetch("./games.json") 
   .then((response) => response.json())
   .then((data) => {
     gamesData = data;
