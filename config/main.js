@@ -1,3 +1,4 @@
+// config/main.js
 var sitename = "This is school work trust";
 var subtext = "v1.2"; 
 
@@ -17,8 +18,9 @@ function displayFilteredGames(filteredGames) {
     gameImage.src = game.image; 
     gameImage.alt = game.name;
     
+    // CHANGE: Opens the game in the modal instead of redirecting
     gameImage.onclick = () => {
-      window.location.href = game.url;
+      openGame(game.url);
     };
 
     const gameName = document.createElement("p");
@@ -38,6 +40,26 @@ function handleSearchInput() {
     game.name.toLowerCase().includes(searchInputValue)
   );
   displayFilteredGames(filteredGames);
+}
+
+// Function to open the modal
+function openGame(url) {
+  const modal = document.getElementById("gameModal");
+  const iframe = document.getElementById("gameFrame");
+  
+  iframe.src = url;
+  modal.style.display = "block";
+  document.body.style.overflow = "hidden"; // Stop background scrolling
+}
+
+// Function to close the modal
+function closeGame() {
+  const modal = document.getElementById("gameModal");
+  const iframe = document.getElementById("gameFrame");
+  
+  modal.style.display = "none";
+  iframe.src = ""; // Stop the game from running in background
+  document.body.style.overflow = "auto"; // Restore scrolling
 }
 
 fetch("config/games.json")      
