@@ -1,4 +1,4 @@
-var sitename = "Google Drive";
+var sitename = "This is school work trust";
 var subtext = "v1.2"; 
 
 import "./custom.js";
