@@ -40,7 +40,7 @@ function handleSearchInput() {
   displayFilteredGames(filteredGames);
 }
 
-fetch("games.json")   
+fetch("config/games.json")      
   .then((response) => {
     if (!response.ok) {
       throw new Error("Could not load games.json. Check if the file exists.");
