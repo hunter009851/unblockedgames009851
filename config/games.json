@@ -28,5 +28,16 @@
     "name": "Eaglercraft",
     "url": "https://svaaps.github.io/eaglercrafthtml/",
     "image": "https://upload.wikimedia.org/wikipedia/en/5/51/Minecraft_cover.png"
-  }   
+  },
+  {
+    "name": "Raft",
+    "url": "https://www.gamenora.com/game/raft/",
+    "image": "https://thumbnails.gamenora.com/Raft.webp"
+  },
+  {
+    "name": "Snow Rider 3D",
+    "url": "https://www.hoodamath.com/games/snowrider3d.html#gsc.tab=0",
+    "image": ""
+  },
+  {
     ]
