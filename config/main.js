@@ -1,20 +1,8 @@
-// This changes the title of your site
+var sitename = "Google Drive";
+var subtext = "v1.2"; 
 
-var sitename = "Google Drive"; // Change this to change the name of your website.
-var subtext = "v1.2"; // set the subtext
+import "./custom.js";
 
-// more settings in main.css
-
-
-
-// END CONFIG
-// DO NOT MODIFY IF YOU DO NOT KNOW WHAT YOUR DOING!
-
-import "/./config/custom.js";
-
-var serverUrl1 = "https://gms.parcoil.com";
-var currentPageTitle = document.title;
-document.title = `${currentPageTitle} | ${sitename}`;
 let gamesData = []; 
 
 function displayFilteredGames(filteredGames) {
@@ -23,13 +11,14 @@ function displayFilteredGames(filteredGames) {
 
   filteredGames.forEach((game) => {
     const gameDiv = document.createElement("div");
-    gameDiv.classList.add("game");
+    gameDiv.classList.add("game"); 
 
     const gameImage = document.createElement("img");
-    gameImage.src = `${serverUrl1}/${game.url}/${game.image}`;
+    gameImage.src = game.image; 
     gameImage.alt = game.name;
+    
     gameImage.onclick = () => {
-      window.location.href = `play.html?gameurl=${game.url}/`;
+      window.location.href = game.url;
     };
 
     const gameName = document.createElement("p");
@@ -41,7 +30,6 @@ function displayFilteredGames(filteredGames) {
   });
 }
 
-
 function handleSearchInput() {
   const searchInputValue = document
     .getElementById("searchInput")
@@ -52,21 +40,22 @@ function handleSearchInput() {
   displayFilteredGames(filteredGames);
 }
 
-
 fetch("./games.json") 
-  .then((response) => response.json())
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error("Could not load games.json. Check if the file exists.");
+    }
+    return response.json();
+  })
   .then((data) => {
     gamesData = data;
     displayFilteredGames(data); 
   })
   .catch((error) => console.error("Error fetching games:", error));
 
-
 document
   .getElementById("searchInput")
   .addEventListener("input", handleSearchInput);
 
 document.getElementById("title").innerHTML = `${sitename}`;
-
-document.getElementById("subtitle").innerHTML = `${subtext}`
-
+document.getElementById("subtitle").innerHTML = `${subtext}`;   
