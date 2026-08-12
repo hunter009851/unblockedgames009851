@@ -1,5 +1,5 @@
 // config/main.js
-var sitename = "This is school work trust";
+var sitename = "Anything but work";
 var subtext = "v1.2"; 
 
 import "./custom.js";
