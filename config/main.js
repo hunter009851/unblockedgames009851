@@ -52,7 +52,7 @@ function openGame(url) {
   document.body.style.overflow = "hidden"; // Stop background scrolling
 }
 
-// Function to close the modal
+// Function to close the modal (broken)
 function closeGame() {
   const modal = document.getElementById("gameModal");
   const iframe = document.getElementById("gameFrame");
