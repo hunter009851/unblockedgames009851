@@ -1,6 +1,6 @@
 // config/main.js
-var sitename = "Anything but work";
-var subtext = "v1.2"; 
+var sitename = "Unblocked Games";
+var subtext = "v1.1"; 
 
 import "./custom.js";
 
